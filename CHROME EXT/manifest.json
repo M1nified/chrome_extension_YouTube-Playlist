@@ -1,0 +1,70 @@
+{
+  "author": "ProWebJect - Michal Gora",
+  "background": {
+    "page": "/background/background.html"
+  },
+  "content_scripts": [
+    {
+      "css": [
+        "background/youtube_front.css"
+      ],
+      "js": [
+        "lib/jquery.min.js",
+        "background/youtube_front.js"
+      ],
+      "matches": [
+        "http://www.youtube.com/*",
+        "https://www.youtube.com/*",
+        "http://youtube.com/*",
+        "https://youtube.com/*"
+      ]
+    }
+  ],
+  "content_security_policy": "script-src 'self' https://www.youtube.com/iframe_api; object-src 'self'",
+  "description": "YouTube Playlist",
+  "externally_connectable": {
+    "matches": [
+      "http://prowebject.com/YTPlayer/*",
+      "http://www.prowebject.com/YTPlayer/*"
+    ]
+  },
+  "icons": {
+    "128": "img/icon_128.png",
+    "19": "img/icon_19.png",
+    "38": "img/icon_38.png"
+  },
+  "manifest_version": 2,
+  "name": "YouTube Playlist",
+  "options_page": "/html/options.html",
+  "page_action": {
+    "default_icon": {
+      "128": "img/icon_128.png",
+      "19": "img/icon_19.png",
+      "38": "img/icon_38.png"
+    },
+    "default_title": "Run playlist!"
+  },
+  "permissions": [
+    "declarativeContent",
+    "notifications",
+    "storage",
+    "contextMenus",
+    "tabs",
+    "identity",
+    "http://youtube.com/*",
+    "https://youtube.com/*",
+    "https://www.googleapis.com/youtube/v3/*"
+  ],
+  "short_name": "YT Playlist",
+  "version": "1.7.2",
+  "web_accessible_resources": [
+    "lib/jquery-2.0.3.min.map",
+    "img/button_add.png",
+    "img/trash.png",
+    "img/button_next.png",
+    "img/repeat.png",
+    "img/settings.png",
+    "img/play.png",
+    "img/player.png"
+  ]
+}

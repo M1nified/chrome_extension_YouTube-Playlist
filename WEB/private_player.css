@@ -1,0 +1,318 @@
+html{
+	background: #D5D5D5;
+	font-family: arial, sans-serif;
+
+}
+#loading{
+	position:fixed;
+	width:100vw;
+	height:100vh;
+	top:0px;
+	left:0px;
+	display:none;
+	background: rgba(213, 213, 213, 0.91);
+	z-index:20;
+	text-align: center;
+	font-weight: bold;
+}
+#loading>img{
+	margin-top:45vh;
+}
+#resizerbar{
+	float: left;
+	height: 390px;
+	margin: 0px -10px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	width: 6px;
+	cursor: e-resize;
+	margin-right: 5px;
+	background: rgba(198, 198, 198, 1);
+	border-radius: 20px;
+	box-shadow: 1px 0px 1px #8E8E8E;
+}
+#menu{
+	float:left;
+	width: 410px;
+}
+#socials{
+	margin: 5px 0px 0px 1px;
+}
+#socials iframe{
+	z-index:10;
+}
+#ytplayer{
+	float:left;
+	margin-bottom: 5px;
+	margin-right: 5px;
+}
+#playlist{
+	list-style: none;
+	margin: 15px 0px 5px 0px;
+	padding: 10px 5px 0px 6px;
+	height: calc( 100vh - 186px );
+	overflow-y: auto;
+	box-sizing: border-box;
+}
+#playlist::-webkit-scrollbar {
+	width: 7px;
+}
+#playlist::-webkit-scrollbar-corner {
+	display: none;
+	border-radius: 4px;
+	background-color: #F7F7F7;
+}
+#playlist::-webkit-scrollbar-track {
+	/* -webkit-box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.45); */
+	/* border-radius: 3px; */
+	border-radius: 4px;
+	background-color: rgba(132, 132, 132, 0.27);
+}
+#playlist::-webkit-scrollbar-thumb {
+	border-radius: 42px;
+	-webkit-box-shadow: inset 0 0 1px #565656;
+	/* background-image: url("../img/shade.png"); */
+	background-color: #8C8C8C;
+}
+#playlist>li{
+	position: relative;
+	padding-right: 25px;
+	background-image: url(img/grab.png);
+	background-position: right;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+#playlist>li>a{
+	position: relative;
+	padding: 0 5px;
+	margin-bottom:15px;
+	display: block;
+	overflow: hidden;
+	color: #333;
+	zoom: 1;
+	text-decoration: none;
+}
+#playlist .yt-uix-simple-thumb-wrap.yt-uix-simple-thumb-related{
+	float: left;
+	margin: 0 3px 0 0;
+	height: 68px;
+	width: 120px;
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+}
+#playlist .title{
+	display: block;
+	line-height: 1.2;
+	max-height: 2.4em;
+	margin-bottom: 2px;
+	overflow: hidden;
+	cursor: pointer;
+	color: #333;
+	font-size: 13px;
+	font-weight: bold;
+}
+#playlist .stat.attribution{
+	font-size: 11px;
+	color: #767676;
+}
+#playlist .yt-uix-simple-thumb-wrap.yt-uix-simple-thumb-related{
+	float: left;
+	margin: 0 3px 0 0;
+	height: 68px;
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	background: transparent;
+}
+.YTPlayer_video-image{
+	margin-top: -11px;
+}
+.yt-lockup.yt-lockup-tile.yt-lockup-video.clearfix.yt-uix-tile:hover .YTPlaylist_button,.yt-lockup.clearfix.yt-lockup-video.yt-lockup-grid:hover .YTPlaylist_button,li.video-list-item.related-list-item:hover .YTPlaylist_button{
+	display:block !important;
+}
+#YTPlaylit_button-clear{
+	outline: none;
+	border: none;
+	box-shadow: inset 0px 0px 3px #838383;
+	border-radius: 2px;
+	height: 40px;
+	font-size: 15px;
+	color: #5B5B5B;
+	padding: 10px 10px;
+	margin-left: 0px;
+	background: #E66B6B no-repeat;
+	font-weight: bold;
+	cursor: pointer;
+	width: 69px;
+}
+#YTPlaylit_button-clear:hover{
+	background: #EF5555;
+}
+#YTPlaylit_button-next{
+	outline: none;
+	border: none;
+	box-shadow: inset 0px 0px 3px #838383;
+	border-radius: 2px;
+	height: 40px;
+	font-size: 15px;
+	color: #5B5B5B;
+	padding: 10px 10px;
+	margin-left: 0px;
+	font-weight: bold;
+	cursor: pointer;
+	background-color: #8AC98E;
+	background-repeat: no-repeat;
+	background-size: 50px;
+	background-position: 10px 6px;
+	width: 69px;
+}
+#YTPlaylit_button-next:hover{
+	background-color:#62CB69 !important;
+}
+form#YTPlaylist_form-add-video{
+	height:40px;
+}
+form#YTPlaylist_form-add-video>input[type=submit]{
+	outline: none;
+	border: none;
+	box-shadow: inset 0px 0px 3px #838383;
+	border-radius: 2px;
+	height: 40px;
+	margin-bottom: 20px;
+	font-size: 15px;
+	color: #5B5B5B;
+	padding: 10px 10px;
+	clear: both;
+	margin-left: 0px;
+	background: #8AC98E;
+	font-weight: bold;
+	cursor: pointer;
+}
+form#YTPlaylist_form-add-video>input[type=submit]:hover{
+	background: #62CB69;
+}
+.YTPlaylit_button-remove{
+	position: absolute;
+	z-index: 9;
+	width: 30px;
+	height: 30px;
+	background: #E66B6B;
+	left: -5px;
+	top: -10px;
+	outline: none;
+	border: none;
+	box-shadow: inset 0px 0px 3px #838383;
+	border-radius: 2px;
+	font-size: 15px;
+	color: #5B5B5B;
+	font-weight: bold;
+	cursor: pointer;
+}
+.YTPlaylit_button-remove:hover{
+	background: #EF5555;
+}
+.YTPlaylit_button-remove>img{
+	width: 26px;
+	margin: 2px;
+}
+.YTPlaylist_current{
+	position: absolute;
+	z-index: 9;
+	width: 30px;
+	height: 30px;
+	background: #8AC98E;
+	left: -5px;
+	top: 25px;
+	outline: none;
+	border: none;
+	box-shadow: inset 0px 0px 3px #838383;
+	border-radius: 2px;
+	font-size: 15px;
+	color: #5B5B5B;
+	font-weight: bold;
+	cursor: pointer;
+}
+.YTPlaylist_current:hover{
+	/*background: #EF5555;	*/
+}
+.YTPlaylist_current>img{
+	width: 19px;
+	margin: 5px 6px;
+}
+#YTPlaylit_button-loop{
+	outline: none;
+	border: none;
+	box-shadow: inset 0px 0px 3px #838383;
+	border-radius: 2px;
+	height: 40px;
+	font-size: 15px;
+	color: #5B5B5B;
+	padding: 10px 10px;
+	font-weight: bold;
+	cursor: pointer;
+	background-color: #8AC98E;
+	background-repeat: no-repeat;
+	background-size: 32px;
+	background-position: 6px 4px;
+	width: 44px;
+}
+#YTPlaylit_button-loop:hover{
+	background-color:#62CB69;
+}
+#YTPlaylit_button-loop.off{
+	background-color:#A2A2A2;
+}
+#YTPlaylit_button-loop.off:hover{
+	background-color:#909090 !important;
+}
+#YTPlaylit_button-options{
+	display:inline-block;
+	outline: none;
+	border: none;
+	box-shadow: inset 0px 0px 3px #838383;
+	border-radius: 2px;
+	height: 40px;
+	font-size: 15px;
+	color: #5B5B5B;
+	padding: 0px;
+	margin-left: 5px;
+	font-weight: bold;
+	cursor: pointer;
+	background-color: #A2A2A2;
+	background-repeat: no-repeat;
+	background-size: 32px;
+	background-position: 6px 4px;
+	width: 44px;
+}
+#YTPlaylit_button-options:hover{
+	background-color:#909090;
+}
+div.YTPlaylit_checkbox_state{
+	position: absolute;
+	z-index: 9;
+	width: 30px;
+	height: 30px;
+	background: #E66B6B;
+	left: 30px;
+	top: -10px;
+	outline: none;
+	border: none;
+	box-shadow: inset 0px 0px 3px #838383;
+	border-radius: 2px;
+	font-size: 15px;
+	color: #5B5B5B;
+	font-weight: bold;
+	cursor: pointer;
+}
+div.YTPlaylit_checkbox_state>input{
+	margin: 0px;
+    padding: 0px;
+    outline: none;
+    border-radius: 2px;
+    width: 31px;
+    height: 31px;
+	cursor:pointer;
+}

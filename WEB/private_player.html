@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title>YouTube Playlist - Private Player</title>
+	<meta charcode="utf-8">
+	<link rel="stylesheet" type="text/css" href="private_player.css">
+	<link rel="icon" type="image/png" href="img/icon_38.png">
+	<script type="text/javascript" src="lib/jquery.min.js"></script>
+	<script type="text/javascript" src="lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="lib/swfobject.js"></script>
+	<script type="text/javascript" src="private_player.js"></script>
+</head>
+<body>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.3&appId=1454779061420100";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	<div id="loading"><img src="img/loading.gif" style="width:50px;">
+		<p>Loading player and connecting to extension.</p>
+		<p><a href="https://chrome.google.com/webstore/detail/youtube-playlist/kjakkfkngikelijjclgkplmiclokfmfi">YouTube Playlist for Chrome is required.</a></p>
+	</div>
+	<div id="ytapiplayer">
+		You need Flash player 8+ and JavaScript enabled to view this video.
+	</div>
+	<div id="resizerbar"></div>
+	<div id="menu">
+		<div style="display:none;  margin-bottom: 15px;  font-weight: bold;  vertical-align: middle;  text-align: center;  color: #502C2C;">YouTube Playlist for Chrome</div>
+		<div style="margin-bottom:5px;">
+			<button title="Play next" id="YTPlaylit_button-next" style="background-image: url(img/button_next.png);">&nbsp;</button>
+			<button title="Clear playlist" id="YTPlaylit_button-clear">Clear</button>
+			<button class="" title="Play all once/Loop all/Loop single" id="YTPlaylit_button-loop" style="background-image: url(img/button_arrow.png);" state="play_once">&nbsp;</button>
+		</div>
+		<form id="YTPlaylist_form-add-video" style="margin-left:0px;">
+			<input type="url" id="YTPlaylist_add-video" placeholder="New video url..." style="outline: none;  border: none;  box-shadow: inset 0px 0px 3px #838383;  border-radius: 2px;  height: 30px;  margin-bottom: 20px;  font-size: 15px;  color: #5B5B5B;  padding: 5px 10px;  clear: both; width:332px;" required>
+			<input type="submit" value="ADD">
+		</form>
+		<div><input type="text" id="YTPlaylist_search" placeholder="Search..." style="outline: none;  border: none;  box-shadow: inset 0px 0px 3px #838383;  border-radius: 2px;  height: 30px;  margin-top:5px; margin-bottom: 0px;  font-size: 15px;  color: #5B5B5B;  padding: 5px 10px;  clear: both; width: 390px;"></div>
+		<div id="socials">
+			<div class="fb-like" data-href="https://chrome.google.com/webstore/detail/youtube-playlist/kjakkfkngikelijjclgkplmiclokfmfi" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+		</div>
+		<ul id="playlist">
+		</ul>
+	</div>
+</body>
+</html>

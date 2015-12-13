@@ -1,3 +1,8 @@
+#Dev Files
+/DEV
+/WEB/test
+*.zip
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db

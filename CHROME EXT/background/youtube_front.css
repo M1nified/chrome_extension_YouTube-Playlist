@@ -1,0 +1,180 @@
+.yt-lockup.yt-lockup-tile.yt-lockup-video.clearfix.yt-uix-tile:hover .YTPlaylist_button,.yt-lockup.clearfix.yt-lockup-video.yt-lockup-grid:hover .YTPlaylist_button,li.video-list-item.related-list-item:hover .YTPlaylist_button{
+	display:block !important;
+}
+#YTPlaylit_button-clear{  
+	outline: none;
+	border: none;
+	box-shadow: inset 0px 0px 3px #838383;
+	border-radius: 2px;
+	height: 40px;
+	font-size: 15px;
+	color: #5B5B5B;
+	padding: 10px 10px;
+	margin-left: 5px;
+	background: #E66B6B no-repeat;
+	font-weight: bold;
+	cursor: pointer;
+	width: 69px;
+}
+#YTPlaylit_button-clear:hover{
+	background: #EF5555;
+}
+#YTPlaylit_button-next{
+	outline: none;
+	border: none;
+	box-shadow: inset 0px 0px 3px #838383;
+	border-radius: 2px;
+	height: 40px;
+	font-size: 15px;
+	color: #5B5B5B;
+	padding: 10px 10px;
+	margin-left: 5px;
+	font-weight: bold;
+	cursor: pointer;
+	background-color: #8AC98E;
+	background-repeat: no-repeat;
+	background-size: 50px;
+	background-position: 10px 6px;
+	width: 69px;
+}
+#YTPlaylit_button-next:hover{
+	background-color:#62CB69 !important;
+}
+form#YTPlaylist_form-add-video>input[type=submit]{
+	outline: none;
+	border: none;
+	box-shadow: inset 0px 0px 3px #838383;
+	border-radius: 2px;
+	height: 40px;
+	margin-bottom: 20px;
+	font-size: 15px;
+	color: #5B5B5B;
+	padding: 10px 10px;
+	clear: both;
+	margin-left: 5px;
+	background: #8AC98E;
+	font-weight: bold;
+	cursor: pointer;
+}
+form#YTPlaylist_form-add-video>input[type=submit]:hover{
+	background: #62CB69;
+}
+.YTPlaylit_button.YTPlaylist_buttonadd_vid{
+	position: absolute;
+	z-index: 999999999999;
+	width: 30px;
+	height: 30px;
+	background: #E66B6B;
+	left: -5px;
+	top: -10px;
+	outline: none;
+	border: none;
+	box-shadow: inset 0px 0px 3px #838383;
+	border-radius: 2px;
+	font-size: 15px;
+	color: #5B5B5B;
+	font-weight: bold;
+	cursor: pointer;	
+}
+.YTPlaylit_button.YTPlaylist_buttonadd_vid:hover{
+	background: #EF5555;	
+}
+.YTPlaylit_button.YTPlaylist_buttonadd_vid>img{
+	width: 26px;
+	margin: 2px;
+}
+.YTPlaylist_current{
+	position: absolute;
+	z-index: 999999999999;
+	width: 30px;
+	height: 30px;
+	background: #8AC98E;
+	left: -5px;
+	top: 25px;
+	outline: none;
+	border: none;
+	box-shadow: inset 0px 0px 3px #838383;
+	border-radius: 2px;
+	font-size: 15px;
+	color: #5B5B5B;
+	font-weight: bold;
+	cursor: pointer;	
+}
+.YTPlaylist_current:hover{
+	/*background: #EF5555;	*/
+}
+.YTPlaylist_current>img{ 
+	width: 19px;
+	margin: 5px 6px;
+}
+#YTPlaylit_button-loop{
+	display:none;
+	outline: none;
+	border: none;
+	box-shadow: inset 0px 0px 3px #838383;
+	border-radius: 2px;
+	height: 40px;
+	font-size: 15px;
+	color: #5B5B5B;
+	padding: 10px 10px;
+	margin-left: 5px;
+	font-weight: bold;
+	cursor: pointer;
+	background-color: #8AC98E;
+	background-repeat: no-repeat;
+	background-size: 32px;
+	background-position: 6px 4px;
+	width: 44px;
+}
+#YTPlaylit_button-loop:hover{
+	background-color:#62CB69;
+}
+#YTPlaylit_button-loop.off{
+	background-color:#A2A2A2;
+}
+#YTPlaylit_button-loop.off:hover{
+	background-color:#909090 !important;
+}
+#YTPlaylit_button-options{
+	display:inline-block;
+	outline: none;
+	border: none;
+	box-shadow: inset 0px 0px 3px #838383;
+	border-radius: 2px;
+	height: 40px;
+	font-size: 15px;
+	color: #5B5B5B;
+	padding: 0px;
+	margin-left: 5px;
+	font-weight: bold;
+	cursor: pointer;
+	background-color: #A2A2A2;
+	background-repeat: no-repeat;
+	background-size: 32px;
+	background-position: 6px 4px;
+	width: 44px;
+}
+#YTPlaylit_button-options:hover{
+	background-color:#909090;
+}
+#YTPlaylist_button-private-player{
+	outline: none;
+	border: none;
+	box-shadow: inset 0px 0px 3px #838383;
+	border-radius: 2px;
+	height: 40px;
+	font-size: 15px;
+	color: #5B5B5B;
+	padding: 10px 10px;
+	margin-left: 5px;
+	font-weight: bold;
+	cursor: pointer;
+	background-color: #8AC98E;
+	background-repeat: no-repeat;
+	background-size: 32px;
+	background-position: 6px 4px;
+	width: 44px;
+}
+#YTPlaylist_button-private-player:hover{
+	background-color:#62CB69;
+}
