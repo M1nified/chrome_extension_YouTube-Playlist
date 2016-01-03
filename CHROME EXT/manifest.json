@@ -1,7 +1,10 @@
 {
-  "author": "ProWebJect - Michal Gora",
+  "author": "ProWebJect - Michał Góra",
   "background": {
-    "page": "/background/background.html"
+    "scripts": [
+      "/lib/jquery.min.js",
+      "/background/background.js"
+    ]
   },
   "content_scripts": [
     {
@@ -21,7 +24,7 @@
     }
   ],
   "content_security_policy": "script-src 'self' https://www.youtube.com/iframe_api; object-src 'self'",
-  "description": "YouTube Playlist",
+  "description": "Add youtube links to your special playlist and manage them in custom player.",
   "externally_connectable": {
     "matches": [
       "http://prowebject.com/YTPlayer/*",
@@ -34,7 +37,7 @@
     "38": "img/icon_38.png"
   },
   "manifest_version": 2,
-  "name": "YouTube Playlist",
+  "name": "Personal Playlist for YouTube on Chrome",
   "options_page": "/html/options.html",
   "page_action": {
     "default_icon": {
@@ -55,8 +58,8 @@
     "https://youtube.com/*",
     "https://www.googleapis.com/youtube/v3/*"
   ],
-  "short_name": "YT Playlist",
-  "version": "1.7.2",
+  "short_name": "Personal Playlist",
+  "version": "1.8",
   "web_accessible_resources": [
     "lib/jquery-2.0.3.min.map",
     "img/button_add.png",
