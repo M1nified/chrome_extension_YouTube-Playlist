@@ -33,7 +33,7 @@
 		<div style="margin-bottom:5px;">
 			<button title="Play next" id="YTPlaylit_button-next" style="background-image: url(img/button_next.png);">&nbsp;</button>
 			<button title="Clear playlist" id="YTPlaylit_button-clear">Clear</button>
-			<button class="" title="Play all once/Loop all/Loop single" id="YTPlaylit_button-loop" style="background-image: url(img/button_arrow.png);" state="play_once">&nbsp;</button>
+			<button class="" title="Play all once/Loop all/Loop single/Shuffle" id="YTPlaylit_button-loop" style="background-image: url(img/button_arrow.png);" state="play_once">&nbsp;</button>
 		</div>
 		<form id="YTPlaylist_form-add-video" style="margin-left:0px;">
 			<input type="url" id="YTPlaylist_add-video" placeholder="New video url..." style="outline: none;  border: none;  box-shadow: inset 0px 0px 3px #838383;  border-radius: 2px;  height: 30px;  margin-bottom: 20px;  font-size: 15px;  color: #5B5B5B;  padding: 5px 10px;  clear: both; width:332px;" required>
@@ -45,6 +45,12 @@
 		</div>
 		<ul id="playlist">
 		</ul>
+	</div>
+	<div style="display:none;">
+		<img src="img/shuffle.png"/>
+		<img src="img/repeat.png"/>
+		<img src="img/repeat_single.png"/>
+		<img src="img/button_arrow.png"/>
 	</div>
 </body>
 </html>

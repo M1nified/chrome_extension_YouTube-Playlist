@@ -31,7 +31,7 @@ $(document).ready(function(){
 	var params = { allowScriptAccess: "always",allowFullScreen:true,wmode:"opaque"};
 	var atts = { id: "ytplayer" };
 	swfobject.embedSWF("http://www.youtube.com/v/UqLRqzTp6Rk?enablejsapi=1&playerapiid=ytplayer&version=3",
-		"ytapiplayer", "640", "390", "8", null, null, params, atts);
+	"ytapiplayer", "640", "390", "8", null, null, params, atts);
 
 	setResizer();
 	$("#YTPlaylit_button-options").on("click",function(event){
@@ -75,11 +75,11 @@ var setResizer = function(){
 			}
 			$("#resizerbar").css('height',newwidth*390/640 + 'px');
 			$("#ytplayer").css('width',newwidth+'px').css('height',newwidth*390/640 + 'px');
-			resizeinprogressevent=event;	
+			resizeinprogressevent=event;
 		}else{
 			resizeinprogressevent=null;
 		}
-		
+
 	}).on("mouseup",function(event){
 		resizeinprogressevent = null;
 	})
@@ -102,47 +102,50 @@ var setPlayer = function(){
 			PLAYLIST = msg.data;
 			/*var list = [];
 			for(i in msg.data){
-				list.push(msg.data[i].id);
-			}*/
-			if(msg.data && msg.data.length > 0){
-				playVideo(msg.data[0].id);
-			}
-			//ytplayer.playVideo();
-		}else if(msg.type == "playlist_update"){
-			PLAYLIST = msg.data;
-			fillPlaylist(msg.data);
+			list.push(msg.data[i].id);
+		}*/
+		if(msg.data && msg.data.length > 0){
+			playVideo(msg.data[0].id);
 		}
-	});
-	$(document).ready(function(){
-		$("#YTPlaylit_button-clear").on("click",function(){
-			extport.postMessage({clearPlaylist:true});
-		})
-		$("#YTPlaylist_form-add-video").on("submit",function(event){
-			event.preventDefault();
-			var url = $("#YTPlaylist_add-video").val();
-			var v = getVarsFrom(url)['v'];
-			if(v){
-				extport.postMessage({addToPlaylist:true,videoId:v});
-			}else if(/.*youtu\.be\/\w+/i.test(url)){
-				v = /\w+$/i.exec(url)[0];
-				extport.postMessage({addToPlaylist:true,videoId:v});
-			}
-			this.reset();
-		});
-		$("#YTPlaylit_button-loop").on("click",function(event){
-			switch($(this).attr("state")){
-				case "play_once":
-				$(this).attr("state","loop_all").css("background-image","url(img/repeat.png)");
-				break;
-				case "loop_all":
-				$(this).attr("state","loop_single").css("background-image","url(img/repeat_single.png)");
-				break;
-				default:
-				$(this).attr("state","play_once").css("background-image","url(img/button_arrow.png)");
-				break;
-			}
-		})
+		//ytplayer.playVideo();
+	}else if(msg.type == "playlist_update"){
+		PLAYLIST = msg.data;
+		fillPlaylist(msg.data);
+	}
+});
+$(document).ready(function(){
+	$("#YTPlaylit_button-clear").on("click",function(){
+		extport.postMessage({clearPlaylist:true});
 	})
+	$("#YTPlaylist_form-add-video").on("submit",function(event){
+		event.preventDefault();
+		var url = $("#YTPlaylist_add-video").val();
+		var v = getVarsFrom(url)['v'];
+		if(v){
+			extport.postMessage({addToPlaylist:true,videoId:v});
+		}else if(/.*youtu\.be\/\w+/i.test(url)){
+			v = /\w+$/i.exec(url)[0];
+			extport.postMessage({addToPlaylist:true,videoId:v});
+		}
+		this.reset();
+	});
+	$("#YTPlaylit_button-loop").on("click",function(event){
+		switch($(this).attr("state")){
+			case "play_once":
+			$(this).attr("state","loop_all").css("background-image","url(img/repeat.png)");
+			break;
+			case "loop_all":
+			$(this).attr("state","loop_single").css("background-image","url(img/repeat_single.png)");
+			break;
+			case "loop_single":
+			$(this).attr("state","shuffle").css("background-image","url(img/shuffle.png)");
+			break;
+			default:
+			$(this).attr("state","play_once").css("background-image","url(img/button_arrow.png)");
+			break;
+		}
+	})
+})
 }
 var onytplayerStateChange = function(new_state){
 	console.log(new_state)
@@ -175,9 +178,9 @@ var fillPlaylist = function(playlist){
 		var checked = toBePlayed === undefined || toBePlayed === null || toBePlayed === true? 'checked' : '';
 		var videoDuration = '';
 		$("#playlist").append('<li class="video-list-item related-list-item" draggable="true" video_id="'+videoId+'"> <div class="YTPlaylit_button-remove" title="Remove!" video_id="'+ videoId+'"><img src="img/trash.png"></div>'+
-		
+
 		'<div class="YTPlaylit_checkbox_state" title="Play or not?"><input type="checkbox" data-video_id="'+videoId+'" '+checked+' ></div>'
-		
+
 		+'<a href="javascript:playVideo(\''+ videoId +'\');" class=" related-video spf-link  yt-uix-sessionlink" data-sessionlink="feature=related&amp;ved=CAcQzRooAQ&amp;ei=q6gdVNSPMIz50gX7gIH4Ag"><span class="yt-uix-simple-thumb-wrap yt-uix-simple-thumb-related" data-vid="'+ videoId +'"><img alt="" data-thumb="//i.ytimg.com/vi/'+ videoId +'/default.jpg" aria-hidden="true" src="//i.ytimg.com/vi/'+ videoId +'/default.jpg" width="120" height="90" data-group-key="thumb-group-0" class="YTPlayer_video-image"><span class="video-time">'+ videoDuration +'</span>  <span class="thumb-menu dark-overflow-action-menu video-actions"><button onclick=";return false;" class="yt-uix-button-reverse flip addto-watch-queue-menu spf-nolink hide-until-delayloaded yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon yt-uix-button-empty" type="button" role="button" aria-pressed="false" aria-expanded="false" aria-haspopup="true" aria-activedescendant=""><span class="yt-uix-button-icon-wrapper"><img src="https://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" class="yt-uix-button-icon yt-uix-button-icon-dark-overflow-action-menu yt-sprite"></span><img src="https://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" class="yt-uix-button-arrow yt-sprite"><ul class="watch-queue-thumb-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu" style="display: none;"><li role="menuitem"><span class="overflow-menu-choice addto-watch-queue-menu-choice yt-uix-button-menu-item" data-action="play-next" onclick=";return false;" data-video-ids="'+ videoId +'"><span class="yt-uix-button-icon-wrapper"><img src="https://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" class="addto-watch-queue-play-next-icon yt-valign-container yt-sprite"></span>Odtwórz jako następny</span></li><li role="menuitem"><span class="overflow-menu-choice addto-watch-queue-menu-choice yt-uix-button-menu-item" data-action="play-now" onclick=";return false;" data-video-ids="'+ videoId +'"><span class="yt-uix-button-icon-wrapper"><img src="https://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" class="addto-watch-queue-play-now-icon yt-valign-container yt-sprite"></span>Odtwórz teraz</span></li></ul></button></span><button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon addto-button video-actions spf-nolink hide-until-delayloaded addto-watch-later-button yt-uix-tooltip" type="button" onclick=";return false;" title="Do obejrzenia" role="button" data-video-ids="'+ videoId +'"><span class="yt-uix-button-icon-wrapper"><img src="https://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" title="Do obejrzenia" class="yt-uix-button-icon yt-uix-button-icon-addto yt-sprite"></span></button><button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon addto-button addto-queue-button video-actions spf-nolink hide-until-delayloaded addto-tv-queue-button yt-uix-tooltip" type="button" onclick=";return false;" title="Kolejka TV" data-style="tv-queue" data-video-ids="'+ videoId +'"><span class="yt-uix-button-icon-wrapper"><img src="https://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" title="Kolejka TV" class="yt-uix-button-icon yt-uix-button-icon-addto yt-sprite"></span></button></span>  <span dir="ltr" class="title" title="'+ videoTitle +'">'+ videoTitle +'</span><span class="stat attribution"><span class="g-hovercard" data-ytid="UCUMZybDJyqZYrj9eBx5DaSQ" data-name="related">autor: <span class=" g-hovercard" data-ytid="UCUMZybDJyqZYrj9eBx5DaSQ">'+ channelTitle +'</span></span></span><span class="stat view-count">&nbsp;</span></a></li>');
 		if(videoId === current){
 			$("li.video-list-item.related-list-item").not(".autoplay-bar li").last().prepend('<div class="YTPlaylist_current" title="Current clip"><img src="img/play.png"></div>');
@@ -234,20 +237,37 @@ var playNextVideo = function(){
 		if(PLAYLIST[0].id == videoId){
 			index = 0;
 		}
-		do{
-			if(index !== null){
-				index++;
-				if(index >= PLAYLIST.length){
-					if($("#YTPlaylit_button-loop").attr("state")=="play_once"){
-						return;
-					}
-					index = 0;
+		var player_mode = $("#YTPlaylit_button-loop").attr("state");
+		if(player_mode == "shuffle"){
+			//make list of indexes of videos to use
+			var list = [];
+			for(var i=0;i<PLAYLIST.length;i++){
+				if(PLAYLIST[i].tobeplayed !== false && i != index){
+					list.push(i);
 				}
-				newvideoId = PLAYLIST[index].id;
-			}else{
-				newvideoId = PLAYLIST[0].id;
 			}
-		}while(PLAYLIST[index].tobeplayed === false)
+			if(list.length === 0){
+				var newvideoId = PLAYLIST[index].id;
+			}else{
+				var pick = Math.floor(Math.random() * list.length);
+				var newvideoId = PLAYLIST[list[pick]].id;
+			}
+		}else{
+			do{
+				if(index !== null){
+					index++;
+					if(index >= PLAYLIST.length){
+						if(player_mode=="play_once"){
+							return;
+						}
+						index = 0;
+					}
+					var newvideoId = PLAYLIST[index].id;
+				}else{
+					var newvideoId = PLAYLIST[0].id;
+				}
+			}while(PLAYLIST[index].tobeplayed === false)
+		}
 		playVideo(newvideoId);
 	}
 }
